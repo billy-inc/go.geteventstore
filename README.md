@@ -1,5 +1,5 @@
 # Go.GetEventStore 
-[![license](https://img.shields.io/badge/license-BSD-blue.svg?maxAge=2592000)](https://github.com/jetbasrawi/go.geteventstore/blob/master/LICENSE.md) [![Go Report Card](https://goreportcard.com/badge/github.com/jetbasrawi/go.geteventstore)](https://goreportcard.com/report/github.com/jetbasrawi/go.geteventstore) [![GoDoc](https://godoc.org/github.com/jetbasrawi/go.geteventstore?status.svg)](https://godoc.org/github.com/jetbasrawi/go.geteventstore)
+[![license](https://img.shields.io/badge/license-BSD-blue.svg?maxAge=2592000)](https://github.com/billy-inc/go.geteventstore/blob/master/LICENSE.md) [![Go Report Card](https://goreportcard.com/badge/github.com/billy-inc/go.geteventstore)](https://goreportcard.com/report/github.com/billy-inc/go.geteventstore) [![GoDoc](https://godoc.org/github.com/billy-inc/go.geteventstore?status.svg)](https://godoc.org/github.com/billy-inc/go.geteventstore)
 
 ## A Golang client for EventStore 3.x HTTP API. 
 Go.GetEventStore is a http client for [GetEventStore](https://geteventstore.com) written in Go. The 
@@ -28,12 +28,12 @@ the client in more detail, heavily commented example code can be found in the ex
 
 ### Get the package
 ```
-    $ go get github.com/jetbasrawi/go.geteventstore
+    $ go get github.com/billy-inc/go.geteventstore
 ```
 
 ### Import the package
 ```go 
-    import "github.com/jetbasrawi/go.geteventstore"
+    import "github.com/billy-inc/go.geteventstore"
 ```
 
 ### Create a new client
@@ -194,7 +194,7 @@ some dependencies.
 You will need the go.geteventstore.testfeed package.
 
 ```
-    $ go get github.com/jetbasrawi/go.geteventstore.testfeed
+    $ go get github.com/billy-inc/go.geteventstore.testfeed
 
 ```
 You will also need the Check.V1 package which is used for assertions in unit tests.

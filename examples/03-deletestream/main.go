@@ -10,7 +10,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/jetbasrawi/go.geteventstore"
+	"github.com/billy-inc/go.geteventstore"
 )
 
 // FooEvent is an example event

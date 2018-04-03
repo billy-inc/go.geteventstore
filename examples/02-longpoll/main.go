@@ -19,7 +19,7 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/jetbasrawi/go.geteventstore"
+	"github.com/billy-inc/go.geteventstore"
 )
 
 var (

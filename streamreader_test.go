@@ -12,8 +12,8 @@ import (
 	"net/http"
 	"reflect"
 
-	"github.com/jetbasrawi/go.geteventstore"
-	"github.com/jetbasrawi/go.geteventstore.testfeed"
+	"github.com/billy-inc/go.geteventstore"
+	"github.com/billy-inc/go.geteventstore.testfeed"
 	. "gopkg.in/check.v1"
 )
 
