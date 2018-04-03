@@ -182,24 +182,27 @@ func (c *Client) GetEvent(url string) (*EventResponse, *Response, error) {
 		return nil, resp, err
 	}
 
-	var d json.RawMessage
-	var m json.RawMessage
-	ev := &Event{Data: &d, MetaData: &m}
-
-	err = json.Unmarshal(raw, ev)
-	if err == io.EOF {
-		err = nil
-	}
-	if err != nil {
-		return nil, resp, err
-	}
-
 	e := EventResponse{}
 	e.Title = er.Title
 	e.ID = er.ID
 	e.Updated = er.Updated
 	e.Summary = er.Summary
-	e.Event = ev
+
+	if string(raw) != ""  {
+		var d json.RawMessage
+		var m json.RawMessage
+		ev := &Event{Data: &d, MetaData: &m}
+
+		err = json.Unmarshal(raw, ev)
+		if err == io.EOF {
+			err = nil
+		}
+		if err != nil {
+			return nil, resp, err
+		}
+
+		e.Event = ev
+	}
 
 	return &e, resp, nil
 }
