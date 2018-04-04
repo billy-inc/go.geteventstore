@@ -15,6 +15,7 @@ import (
 	"net/http"
 	"net/url"
 	"strconv"
+	"strings"
 
 	"github.com/billy-inc/go.geteventstore/atom"
 )
@@ -188,11 +189,11 @@ func (c *Client) GetEvent(url string) (*EventResponse, *Response, error) {
 	e.Updated = er.Updated
 	e.Summary = er.Summary
 
-	if string(raw) != ""  {
-		var d json.RawMessage
-		var m json.RawMessage
-		ev := &Event{Data: &d, MetaData: &m}
+	var d json.RawMessage
+	var m json.RawMessage
+	ev := &Event{Data: &d, MetaData: &m}
 
+	if string(raw) != ""  {
 		err = json.Unmarshal(raw, ev)
 		if err == io.EOF {
 			err = nil
@@ -200,9 +201,28 @@ func (c *Client) GetEvent(url string) (*EventResponse, *Response, error) {
 		if err != nil {
 			return nil, resp, err
 		}
+	} else {
+		titleSplit := strings.Split(er.Title, "@")
 
-		e.Event = ev
+		// Get streamId.
+		streamId := titleSplit[1]
+
+		// Get event number.
+		eventNumber, err := strconv.Atoi(titleSplit[0])
+		if err != nil {
+			return nil, resp, err
+		}
+
+		// Get event type.
+		eventType := er.Summary
+
+		ev.EventStreamID = streamId
+		ev.EventNumber = eventNumber
+		ev.EventType = eventType
+		ev.EventID = NewUUID()
 	}
+
+	e.Event = ev
 
 	return &e, resp, nil
 }
